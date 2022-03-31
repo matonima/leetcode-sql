@@ -1,0 +1,12 @@
+#solution 1
+SELECT name AS 'Customers' FROM Customers
+WHERE Customers.id 
+NOT IN 
+    (SELECT CustomerID 
+     FROM Orders)
+     
+#solution 2
+SELECT Customers.name AS 'Customers' FROM Customers
+LEFT OUTER JOIN Orders ON
+Customers.id=Orders.customerid
+WHERE Orders.customerid IS NULL
