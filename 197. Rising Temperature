@@ -1,0 +1,5 @@
+SELECT  A.id AS 'Id'
+FROM Weather AS A 
+JOIN Weather AS B
+ON DATEDIFF(A.recordDate, B.recordDate) = 1  # this function joins the same table with its duplicate with a discretion of one.
+WHERE A.temperature>B.temperature
