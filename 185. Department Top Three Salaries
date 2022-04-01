@@ -1,0 +1,11 @@
+
+# Write your MySQL query statement below
+Select Department.name, Employee.name, salary
+from Employee 
+Join Department ON
+Employee.departmentId=Department.id 
+WHERE (Department.id, salary) IN
+(select DepartmentId, salary from Employee 
+group by departmentid
+order by salary desc
+LIMIT 3);
